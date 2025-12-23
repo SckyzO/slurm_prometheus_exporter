@@ -31,13 +31,6 @@ var (
 				Default(":8080").
 				String()
 
-	// webTelemetryPath = kingpin.Flag("web.telemetry-path", "Path under which to expose metrics").
-	// 				Default("/metrics").
-	// 				String()
-
-	// webConfigFile = kingpin.Flag("web.config.file", "Path to configuration file for TLS and/or basic authentication (optional)").
-	// 		String()
-
 	logLevel = kingpin.Flag("log.level", "Log level (debug, info, warn, error)").
 			Default("info").
 			String()

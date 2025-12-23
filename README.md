@@ -109,9 +109,6 @@ Flags:
   -v, --version                 Show version information
   --config.file="config.yaml"   Path to configuration file
   --web.listen-address=":8080"  Address to listen on for web interface and telemetry
-  --web.telemetry-path="/metrics"
-                                Path under which to expose metrics
-  --web.config.file=""          Path to configuration file for TLS and/or basic auth (optional)
   --log.level="info"            Log level (debug, info, warn, error)
   --log.format="text"           Log format (text, json)
 ```
