@@ -100,7 +100,8 @@ func main() {
 		"build_time", BuildTime)
 
 	// Create metrics registry
-	metricsRegistry := metrics.NewRegistry(Version, GitCommit, BuildTime)
+	debugMode := cfg.Logging.Level == "debug"
+	metricsRegistry := metrics.NewRegistry(Version, GitCommit, BuildTime, debugMode)
 
 	// Create collector
 	coll, err := collector.NewCollector(cfg, metricsRegistry, logger)

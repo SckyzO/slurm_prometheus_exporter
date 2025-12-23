@@ -239,14 +239,17 @@ type responseWriterWrapper struct {
 
 // WriteHeader captures the status code
 func (w *responseWriterWrapper) WriteHeader(statusCode int) {
-	w.statusCode = statusCode
-	w.ResponseWriter.WriteHeader(statusCode)
+	if w.statusCode == 0 {
+		w.statusCode = statusCode
+		w.ResponseWriter.WriteHeader(statusCode)
+	}
 }
 
 // Write ensures that if WriteHeader wasn't called, we default to 200
 func (w *responseWriterWrapper) Write(b []byte) (int, error) {
 	if w.statusCode == 0 {
 		w.statusCode = http.StatusOK
+		w.ResponseWriter.WriteHeader(http.StatusOK)
 	}
 	return w.ResponseWriter.Write(b)
 }

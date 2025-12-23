@@ -64,9 +64,14 @@ func (c *Collector) CollectAll(ctx context.Context) (map[string]string, error) {
 			"name", endpoint.Name,
 			"path", endpoint.Path)
 
-		timer := prometheus.NewTimer(c.registry.ScrapeDuration.WithLabelValues(endpoint.Name))
+		var timer *prometheus.Timer
+		if c.registry.ScrapeDuration != nil {
+			timer = prometheus.NewTimer(c.registry.ScrapeDuration.WithLabelValues(endpoint.Name))
+		}
 		metrics, err := c.collectEndpoint(ctx, endpoint)
-		timer.ObserveDuration()
+		if timer != nil {
+			timer.ObserveDuration()
+		}
 
 		if err != nil {
 			c.logger.Error("failed to collect metrics from endpoint",

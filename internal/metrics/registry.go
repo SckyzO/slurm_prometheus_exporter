@@ -24,7 +24,7 @@ type Registry struct {
 }
 
 // NewRegistry creates and registers all metrics for the exporter
-func NewRegistry(version, gitCommit, buildTime string) *Registry {
+func NewRegistry(version, gitCommit, buildTime string, debugMode bool) *Registry {
 	reg := &Registry{
 		customRegistry: prometheus.NewRegistry(),
 	}
@@ -39,15 +39,17 @@ func NewRegistry(version, gitCommit, buildTime string) *Registry {
 	)
 	reg.BuildInfo.WithLabelValues(version, gitCommit, buildTime).Set(1)
 
-	// Scrape duration histogram
-	reg.ScrapeDuration = promauto.NewHistogramVec(
-		prometheus.HistogramOpts{
-			Name:    "slurm_exporter_scrape_duration_seconds",
-			Help:    "Duration of scrapes by the exporter",
-			Buckets: []float64{0.001, 0.005, 0.01, 0.05, 0.1, 0.5, 1, 5, 10},
-		},
-		[]string{"endpoint"},
-	)
+	// Scrape duration histogram (only in debug mode)
+	if debugMode {
+		reg.ScrapeDuration = promauto.NewHistogramVec(
+			prometheus.HistogramOpts{
+				Name:    "slurm_exporter_scrape_duration_seconds",
+				Help:    "Duration of scrapes by the exporter",
+				Buckets: []float64{0.001, 0.005, 0.01, 0.05, 0.1, 0.5, 1, 5, 10},
+			},
+			[]string{"endpoint"},
+		)
+	}
 
 	// Scrape success gauge
 	reg.ScrapeSuccess = promauto.NewGaugeVec(
