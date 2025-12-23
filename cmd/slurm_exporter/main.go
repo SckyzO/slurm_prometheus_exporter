@@ -31,12 +31,12 @@ var (
 				Default(":8080").
 				String()
 
-	webTelemetryPath = kingpin.Flag("web.telemetry-path", "Path under which to expose metrics").
-				Default("/metrics").
-				String()
+	// webTelemetryPath = kingpin.Flag("web.telemetry-path", "Path under which to expose metrics").
+	// 				Default("/metrics").
+	// 				String()
 
-	webConfigFile = kingpin.Flag("web.config.file", "Path to configuration file for TLS and/or basic authentication (optional)").
-			String()
+	// webConfigFile = kingpin.Flag("web.config.file", "Path to configuration file for TLS and/or basic authentication (optional)").
+	// 		String()
 
 	logLevel = kingpin.Flag("log.level", "Log level (debug, info, warn, error)").
 			Default("info").
@@ -78,6 +78,7 @@ func main() {
 			// Successfully parsed port
 		} else if _, err := fmt.Sscanf(*webListenAddress, "%*[^:]:%d", &cfg.Server.Port); err == nil {
 			// Successfully parsed with host
+			fmt.Printf("Parsed listen address with host: %s\n", *webListenAddress)
 		}
 	}
 
