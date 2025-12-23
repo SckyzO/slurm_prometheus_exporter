@@ -1,0 +1,45 @@
+# Configuration for the connection to Slurm API
+slurm:
+  url: "http://localhost:6817"
+  timeout: "10s"  # Timeout for requests to the Slurm API
+
+# HTTP server configuration
+server:
+  port: 8080
+  basic_auth:
+    enabled: true
+    username: "admin"
+    password: "password"
+  ssl:
+    enabled: false
+    cert_file: "/path/to/cert.pem"
+    key_file: "/path/to/key.pem"
+
+# Configuration of endpoints to expose
+endpoints:
+  - name: "jobs"
+    path: "/metrics/jobs"
+    enabled: true
+  - name: "nodes"
+    path: "/metrics/nodes"
+    enabled: true
+  - name: "partitions"
+    path: "/metrics/partitions"
+    enabled: true
+  - name: "jobs-users-accts"
+    path: "/metrics/jobs-users-accts"
+    enabled: true
+  - name: "scheduler"
+    path: "/metrics/scheduler"
+    enabled: true
+
+# Global custom labels
+labels:
+  cluster: "cluster01"
+  env: "prod"
+  region: "eu-west-1"
+
+# Logging configuration
+logging:
+  level: "info"
+  output: "stdout"
