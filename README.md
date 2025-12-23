@@ -23,8 +23,8 @@ A Prometheus exporter for Slurm metrics, because monitoring your HPC cluster sho
 ### From Source
 
 ```bash
-git clone https://github.com/sckyzo/slurm_exporter.git
-cd slurm_exporter
+git clone https://github.com/sckyzo/slurm_prometheus_exporter.git
+cd slurm_prometheus_exporter
 make build
 ```
 
@@ -33,7 +33,7 @@ The binary will be available at `./slurm_exporter`.
 ### Using Go Install
 
 ```bash
-go install github.com/sckyzo/slurm_exporter/cmd/slurm_exporter@latest
+go install github.com/sckyzo/slurm_prometheus_exporter/cmd/slurm_exporter@latest
 ```
 
 ## Configuration ⚙️
@@ -184,4 +184,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support 💬
 
-If you encounter any issues or have questions, please [open an issue](https://github.com/sckyzo/slurm_exporter/issues) on GitHub.
+If you encounter any issues or have questions, please [open an issue](https://github.com/sckyzo/slurm_prometheus_exporter/issues) on GitHub.
