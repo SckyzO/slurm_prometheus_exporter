@@ -2,6 +2,7 @@ package collector
 
 import (
 	"bufio"
+	"bytes"
 	"context"
 	"fmt"
 	"io"
@@ -10,8 +11,6 @@ import (
 	"strings"
 
 	"github.com/prometheus/client_golang/prometheus"
-	dto "github.com/prometheus/client_model/go"
-	"github.com/prometheus/common/expfmt"
 	"github.com/sckyzo/slurm_prometheus_exporter/internal/config"
 	"github.com/sckyzo/slurm_prometheus_exporter/internal/metrics"
 )
@@ -42,9 +41,9 @@ func NewCollector(cfg *config.Config, registry *metrics.Registry, logger *slog.L
 }
 
 // CollectAll collects metrics from all enabled Slurm endpoints
-func (c *Collector) CollectAll(ctx context.Context) (map[string][]*dto.MetricFamily, error) {
+func (c *Collector) CollectAll(ctx context.Context) (map[string]string, error) {
 	enabledEndpoints := c.config.GetEnabledEndpoints()
-	results := make(map[string][]*dto.MetricFamily)
+	results := make(map[string]string)
 
 	for _, endpoint := range enabledEndpoints {
 		c.logger.Debug("collecting metrics from endpoint",
@@ -52,7 +51,7 @@ func (c *Collector) CollectAll(ctx context.Context) (map[string][]*dto.MetricFam
 			"path", endpoint.Path)
 
 		timer := prometheus.NewTimer(c.registry.ScrapeDuration.WithLabelValues(endpoint.Name))
-		metricFamilies, err := c.collectEndpoint(ctx, endpoint)
+		metrics, err := c.collectEndpoint(ctx, endpoint)
 		timer.ObserveDuration()
 
 		if err != nil {
@@ -65,113 +64,127 @@ func (c *Collector) CollectAll(ctx context.Context) (map[string][]*dto.MetricFam
 		}
 
 		c.registry.ScrapeSuccess.WithLabelValues(endpoint.Name).Set(1)
-		results[endpoint.Name] = metricFamilies
+		results[endpoint.Name] = metrics
 	}
 
 	return results, nil
 }
 
-// collectEndpoint collects metrics from a single Slurm endpoint
-func (c *Collector) collectEndpoint(ctx context.Context, endpoint config.EndpointConfig) ([]*dto.MetricFamily, error) {
+// collectEndpoint collects metrics from a single Slurm endpoint as raw text
+func (c *Collector) collectEndpoint(ctx context.Context, endpoint config.EndpointConfig) (string, error) {
 	url := c.config.Slurm.URL + endpoint.Path
 
 	c.logger.Debug("fetching metrics from URL", "url", url)
 
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
 	if err != nil {
-		return nil, fmt.Errorf("failed to create request: %w", err)
+		return "", fmt.Errorf("failed to create request: %w", err)
 	}
 
 	resp, err := c.client.Do(req)
 	if err != nil {
-		return nil, fmt.Errorf("failed to fetch metrics: %w", err)
+		return "", fmt.Errorf("failed to fetch metrics: %w", err)
 	}
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("unexpected status code: %d", resp.StatusCode)
+		return "", fmt.Errorf("unexpected status code: %d", resp.StatusCode)
 	}
 
-	// Parse the OpenMetrics/Prometheus format
-	metricFamilies, err := c.parseMetrics(resp.Body)
-	if err != nil {
-		return nil, fmt.Errorf("failed to parse metrics: %w", err)
+	// Read the metrics as raw text
+	var buffer bytes.Buffer
+	if _, err := io.Copy(&buffer, resp.Body); err != nil {
+		return "", fmt.Errorf("failed to read response: %w", err)
 	}
 
-	// Add custom labels to all metrics
-	metricFamilies = c.addCustomLabels(metricFamilies)
+	// Add custom labels to each metric line
+	metricsText := c.addCustomLabels(buffer.String())
 
-	return metricFamilies, nil
+	return metricsText, nil
 }
 
-// parseMetrics parses OpenMetrics/Prometheus format into MetricFamily structs
-func (c *Collector) parseMetrics(reader io.Reader) ([]*dto.MetricFamily, error) {
-	var parser expfmt.TextParser
-	metricFamilies, err := parser.TextToMetricFamilies(reader)
-	if err != nil {
-		return nil, fmt.Errorf("failed to parse metrics: %w", err)
-	}
-
-	// Convert map to slice
-	families := make([]*dto.MetricFamily, 0, len(metricFamilies))
-	for _, mf := range metricFamilies {
-		families = append(families, mf)
-	}
-
-	return families, nil
-}
-
-// addCustomLabels adds configured custom labels to all metrics
-func (c *Collector) addCustomLabels(families []*dto.MetricFamily) []*dto.MetricFamily {
+// addCustomLabels adds configured custom labels to all metric lines
+func (c *Collector) addCustomLabels(metricsText string) string {
 	if len(c.config.Labels) == 0 {
-		return families
+		return metricsText
 	}
 
-	// Create new label pairs from config
-	customLabels := make([]*dto.LabelPair, 0, len(c.config.Labels))
+	// Build the labels string to append
+	var labelsBuilder strings.Builder
+	first := true
 	for key, value := range c.config.Labels {
-		k := key
-		v := value
-		customLabels = append(customLabels, &dto.LabelPair{
-			Name:  &k,
-			Value: &v,
-		})
-	}
-
-	// Add custom labels to each metric
-	for _, family := range families {
-		for _, metric := range family.Metric {
-			metric.Label = append(metric.Label, customLabels...)
+		if !first {
+			labelsBuilder.WriteString(",")
 		}
+		labelsBuilder.WriteString(key)
+		labelsBuilder.WriteString("=\"")
+		labelsBuilder.WriteString(value)
+		labelsBuilder.WriteString("\"")
+		first = false
+	}
+	labelsStr := labelsBuilder.String()
+
+	// Parse each line and add labels
+	var result strings.Builder
+	scanner := bufio.NewScanner(strings.NewReader(metricsText))
+	for scanner.Scan() {
+		line := scanner.Text()
+
+		// Skip comments and empty lines
+		if strings.HasPrefix(line, "#") || strings.TrimSpace(line) == "" {
+			result.WriteString(line)
+			result.WriteString("\n")
+			continue
+		}
+
+		// Parse metric name and value
+		// Format: metric_name{labels} value timestamp
+		// or: metric_name value
+		parts := strings.Fields(line)
+		if len(parts) < 2 {
+			result.WriteString(line)
+			result.WriteString("\n")
+			continue
+		}
+
+		metricPart := parts[0]
+		rest := strings.Join(parts[1:], " ")
+
+		// Check if there are already labels
+		if strings.Contains(metricPart, "{") {
+			// Add our labels to existing ones
+			idx := strings.Index(metricPart, "{")
+			name := metricPart[:idx]
+			existingLabels := metricPart[idx+1 : len(metricPart)-1]
+			result.WriteString(name)
+			result.WriteString("{")
+			result.WriteString(existingLabels)
+			result.WriteString(",")
+			result.WriteString(labelsStr)
+			result.WriteString("} ")
+		} else {
+			// Add labels to metric without any
+			result.WriteString(metricPart)
+			result.WriteString("{")
+			result.WriteString(labelsStr)
+			result.WriteString("} ")
+		}
+
+		result.WriteString(rest)
+		result.WriteString("\n")
 	}
 
-	return families
+	return result.String()
 }
 
 // WriteMetrics writes all collected metrics in Prometheus format
-func (c *Collector) WriteMetrics(w io.Writer, families map[string][]*dto.MetricFamily) error {
-	encoder := expfmt.NewEncoder(w, expfmt.FmtText)
-
-	for _, metricFamilies := range families {
-		for _, family := range metricFamilies {
-			if err := encoder.Encode(family); err != nil {
-				return fmt.Errorf("failed to encode metric family: %w", err)
-			}
+func (c *Collector) WriteMetrics(w io.Writer, metricsMap map[string]string) error {
+	for _, metricsText := range metricsMap {
+		if _, err := w.Write([]byte(metricsText)); err != nil {
+			return fmt.Errorf("failed to write metrics: %w", err)
 		}
 	}
-
 	return nil
-}
-
-// CollectFromFile collects metrics from a test file (for testing purposes)
-func (c *Collector) CollectFromFile(filePath string) ([]*dto.MetricFamily, error) {
-	file, err := http.Get(filePath)
-	if err != nil {
-		return nil, fmt.Errorf("failed to read test file: %w", err)
-	}
-	defer file.Body.Close()
-
-	return c.parseMetrics(file.Body)
 }
 
 // Health checks if the Slurm API is reachable
@@ -194,50 +207,4 @@ func (c *Collector) Health(ctx context.Context) error {
 	}
 
 	return nil
-}
-
-// GetMetricsAsText returns metrics as text for a single endpoint (for debugging)
-func (c *Collector) GetMetricsAsText(ctx context.Context, endpointName string) (string, error) {
-	var endpoint *config.EndpointConfig
-	for _, ep := range c.config.Endpoints {
-		if ep.Name == endpointName && ep.Enabled {
-			endpoint = &ep
-			break
-		}
-	}
-
-	if endpoint == nil {
-		return "", fmt.Errorf("endpoint '%s' not found or not enabled", endpointName)
-	}
-
-	url := c.config.Slurm.URL + endpoint.Path
-
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
-	if err != nil {
-		return "", fmt.Errorf("failed to create request: %w", err)
-	}
-
-	resp, err := c.client.Do(req)
-	if err != nil {
-		return "", fmt.Errorf("failed to fetch metrics: %w", err)
-	}
-	defer resp.Body.Close()
-
-	if resp.StatusCode != http.StatusOK {
-		return "", fmt.Errorf("unexpected status code: %d", resp.StatusCode)
-	}
-
-	// Read response as text
-	var builder strings.Builder
-	scanner := bufio.NewScanner(resp.Body)
-	for scanner.Scan() {
-		builder.WriteString(scanner.Text())
-		builder.WriteString("\n")
-	}
-
-	if err := scanner.Err(); err != nil {
-		return "", fmt.Errorf("failed to read response: %w", err)
-	}
-
-	return builder.String(), nil
 }

@@ -164,7 +164,7 @@ func (s *Server) handleMetrics() http.Handler {
 		defer cancel()
 
 		// Collect metrics from all endpoints
-		metricFamilies, err := s.collector.CollectAll(ctx)
+		metricsMap, err := s.collector.CollectAll(ctx)
 		if err != nil {
 			s.logger.Error("failed to collect metrics", "error", err)
 			http.Error(w, "Failed to collect metrics", http.StatusInternalServerError)
@@ -173,7 +173,7 @@ func (s *Server) handleMetrics() http.Handler {
 
 		// Write metrics in Prometheus format
 		w.Header().Set("Content-Type", "text/plain; version=0.0.4; charset=utf-8")
-		if err := s.collector.WriteMetrics(w, metricFamilies); err != nil {
+		if err := s.collector.WriteMetrics(w, metricsMap); err != nil {
 			s.logger.Error("failed to write metrics", "error", err)
 			return
 		}

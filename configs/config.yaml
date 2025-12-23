@@ -7,7 +7,7 @@ slurm:
 server:
   port: 8080
   basic_auth:
-    enabled: true
+    enabled: false
     username: "admin"
     password: "password"
   ssl:
@@ -41,5 +41,5 @@ labels:
 
 # Logging configuration
 logging:
-  level: "info"
+  level: "debug"
   output: "stdout"
