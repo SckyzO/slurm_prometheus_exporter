@@ -19,8 +19,9 @@ type Config struct {
 
 // SlurmConfig holds the Slurm API connection settings
 type SlurmConfig struct {
-	URL     string `yaml:"url"`
-	Timeout string `yaml:"timeout"`
+	URL               string `yaml:"url"`
+	Timeout           string `yaml:"timeout"`
+	TLSInsecureVerify bool   `yaml:"tls_insecure_skip_verify"`
 }
 
 // ServerConfig holds the HTTP server configuration

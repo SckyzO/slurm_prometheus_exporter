@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"bytes"
 	"context"
+	"crypto/tls"
 	"fmt"
 	"io"
 	"log/slog"
@@ -30,11 +31,24 @@ func NewCollector(cfg *config.Config, registry *metrics.Registry, logger *slog.L
 		return nil, fmt.Errorf("invalid timeout configuration: %w", err)
 	}
 
+	// Create HTTP client with optional TLS insecure skip verify
+	httpClient := &http.Client{
+		Timeout: timeout,
+	}
+
+	// Configure TLS if needed
+	if cfg.Slurm.TLSInsecureVerify {
+		httpClient.Transport = &http.Transport{
+			TLSClientConfig: &tls.Config{
+				InsecureSkipVerify: true,
+			},
+		}
+		logger.Warn("TLS certificate verification is disabled - this is insecure and should only be used for testing")
+	}
+
 	return &Collector{
-		config: cfg,
-		client: &http.Client{
-			Timeout: timeout,
-		},
+		config:   cfg,
+		client:   httpClient,
 		registry: registry,
 		logger:   logger,
 	}, nil

@@ -45,6 +45,7 @@ Create a `config.yaml` file with your settings:
 slurm:
   url: "http://localhost:6817"
   timeout: "10s"
+  tls_insecure_skip_verify: false  # Set to true for self-signed certificates (insecure)
 
 # HTTP server configuration
 server:

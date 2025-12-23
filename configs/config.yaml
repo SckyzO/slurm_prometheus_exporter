@@ -2,6 +2,7 @@
 slurm:
   url: "http://localhost:6817"
   timeout: "10s"  # Timeout for requests to the Slurm API
+  tls_insecure_skip_verify: false  # Skip TLS certificate verification (insecure, for self-signed certs only)
 
 # HTTP server configuration
 server:
