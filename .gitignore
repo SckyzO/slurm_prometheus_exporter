@@ -15,9 +15,8 @@
 go.work
 
 # Build output
-/slurm_exporter
-/dist/
 /bin/
+/dist/
 
 # IDE specific files
 .vscode/

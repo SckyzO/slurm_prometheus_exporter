@@ -28,7 +28,7 @@ cd slurm_prometheus_exporter
 make build
 ```
 
-The binary will be available at `./slurm_exporter`.
+The binary will be available at `bin/slurm_exporter`.
 
 ### Using Go Install
 
@@ -95,7 +95,7 @@ An example configuration file is available in [`configs/config.yaml`](configs/co
 Run the exporter with your configuration file:
 
 ```bash
-./slurm_exporter --config.file=config.yaml
+bin/slurm_exporter --config.file=config.yaml
 ```
 
 ### Command-line Options
@@ -119,16 +119,16 @@ Flags:
 
 ```bash
 # Use a specific config file
-./slurm_exporter --config.file=/etc/slurm_exporter/config.yaml
+bin/slurm_exporter --config.file=/etc/slurm_exporter/config.yaml
 
 # Override listen address
-./slurm_exporter --config.file=config.yaml --web.listen-address=":9100"
+bin/slurm_exporter --config.file=config.yaml --web.listen-address=":9100"
 
 # Enable debug logging
-./slurm_exporter --config.file=config.yaml --log.level=debug
+bin/slurm_exporter --config.file=config.yaml --log.level=debug
 
 # Use JSON logging format
-./slurm_exporter --config.file=config.yaml --log.format=json
+bin/slurm_exporter --config.file=config.yaml --log.format=json
 ```
 
 ### Endpoints

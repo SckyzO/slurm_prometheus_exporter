@@ -1,6 +1,7 @@
 .PHONY: build test clean lint run help
 
 BINARY_NAME=slurm_exporter
+BUILD_DIR=bin
 VERSION?=dev
 GIT_COMMIT=$(shell git rev-parse --short HEAD 2>/dev/null || echo "unknown")
 BUILD_TIME=$(shell date -u '+%Y-%m-%d_%H:%M:%S')
@@ -14,8 +15,9 @@ help: ## Show this help message
 
 build: ## Build the binary
 	@echo "Building ${BINARY_NAME}..."
-	go build ${LDFLAGS} -o ${BINARY_NAME} ./cmd/slurm_exporter
-	@echo "Build complete: ./${BINARY_NAME}"
+	@mkdir -p ${BUILD_DIR}
+	go build ${LDFLAGS} -o ${BUILD_DIR}/${BINARY_NAME} ./cmd/slurm_exporter
+	@echo "Build complete: ${BUILD_DIR}/${BINARY_NAME}"
 
 test: ## Run tests
 	@echo "Running tests..."
@@ -27,7 +29,7 @@ coverage: test ## Run tests and show coverage
 
 clean: ## Clean build artifacts
 	@echo "Cleaning..."
-	rm -f ${BINARY_NAME}
+	rm -rf ${BUILD_DIR}
 	rm -f coverage.out
 	rm -rf dist/
 	@echo "Clean complete"
@@ -37,7 +39,7 @@ lint: ## Run linter (requires golangci-lint)
 	golangci-lint run ./...
 
 run: build ## Build and run the exporter
-	./${BINARY_NAME} --config configs/config.yaml
+	${BUILD_DIR}/${BINARY_NAME} --config.file configs/config.yaml
 
 fmt: ## Format code
 	@echo "Formatting code..."
