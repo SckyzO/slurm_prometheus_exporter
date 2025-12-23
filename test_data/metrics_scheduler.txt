@@ -1,0 +1,174 @@
+# HELP slurm_agent_cnt Number of agent threads
+# TYPE slurm_agent_cnt gauge
+slurm_agent_cnt 0
+# HELP slurm_agent_queue_size Outgoing RPC retry queue length
+# TYPE slurm_agent_queue_size gauge
+slurm_agent_queue_size 0
+# HELP slurm_agent_thread_cnt Total active agent-created threads
+# TYPE slurm_agent_thread_cnt gauge
+slurm_agent_thread_cnt 0
+# HELP slurm_bf_depth_mean Mean backfill cycle depth
+# TYPE slurm_bf_depth_mean gauge
+slurm_bf_depth_mean 1
+# HELP slurm_bf_mean_cycle Mean backfill cycle time
+# TYPE slurm_bf_mean_cycle gauge
+slurm_bf_mean_cycle 319
+# HELP slurm_bf_mean_table_sz Mean backfill table size
+# TYPE slurm_bf_mean_table_sz gauge
+slurm_bf_mean_table_sz 1
+# HELP slurm_bf_queue_len_mean Mean backfill queue length
+# TYPE slurm_bf_queue_len_mean gauge
+slurm_bf_queue_len_mean 1
+# HELP slurm_bf_try_depth_mean Mean depth attempts in backfill
+# TYPE slurm_bf_try_depth_mean gauge
+slurm_bf_try_depth_mean 1
+# HELP slurm_backfilled_het_jobs Heterogeneous components backfilled
+# TYPE slurm_backfilled_het_jobs gauge
+slurm_backfilled_het_jobs 0
+# HELP slurm_backfilled_jobs Total backfilled jobs since reset
+# TYPE slurm_backfilled_jobs gauge
+slurm_backfilled_jobs 1
+# HELP slurm_bf_active Backfill scheduler active jobs
+# TYPE slurm_bf_active gauge
+slurm_bf_active 0
+# HELP slurm_bf_cycle_cnt Backfill cycle count
+# TYPE slurm_bf_cycle_cnt gauge
+slurm_bf_cycle_cnt 1
+# HELP slurm_bf_cycle_last Last backfill cycle time
+# TYPE slurm_bf_cycle_last gauge
+slurm_bf_cycle_last 319
+# HELP slurm_bf_cycle_max Max backfill cycle time
+# TYPE slurm_bf_cycle_max gauge
+slurm_bf_cycle_max 319
+# HELP slurm_bf_cycle_tot Sum of backfill cycle times
+# TYPE slurm_bf_cycle_tot gauge
+slurm_bf_cycle_tot 319
+# HELP slurm_bf_depth_tot Sum of backfill job depths
+# TYPE slurm_bf_depth_tot gauge
+slurm_bf_depth_tot 1
+# HELP slurm_bf_depth_try_tot Sum of backfill depth attempts
+# TYPE slurm_bf_depth_try_tot gauge
+slurm_bf_depth_try_tot 1
+# HELP slurm_bf_last_depth Last backfill depth
+# TYPE slurm_bf_last_depth gauge
+slurm_bf_last_depth 1
+# HELP slurm_bf_last_depth_try Last backfill depth attempts
+# TYPE slurm_bf_last_depth_try gauge
+slurm_bf_last_depth_try 1
+# HELP slurm_bf_queue_len Backfill queue length
+# TYPE slurm_bf_queue_len gauge
+slurm_bf_queue_len 1
+# HELP slurm_bf_queue_len_tot Sum of backfill queue lengths
+# TYPE slurm_bf_queue_len_tot gauge
+slurm_bf_queue_len_tot 1
+# HELP slurm_bf_table_size Backfill table size
+# TYPE slurm_bf_table_size gauge
+slurm_bf_table_size 1
+# HELP slurm_bf_table_size_tot Sum of backfill table sizes
+# TYPE slurm_bf_table_size_tot gauge
+slurm_bf_table_size_tot 1
+# HELP slurm_bf_when_last_cycle Timestamp of last backfill cycle
+# TYPE slurm_bf_when_last_cycle gauge
+slurm_bf_when_last_cycle 1766493072
+# HELP slurm_sdiag_jobs_canceled Jobs canceled since reset
+# TYPE slurm_sdiag_jobs_canceled gauge
+slurm_sdiag_jobs_canceled 0
+# HELP slurm_sdiag_jobs_completed Jobs completed since reset
+# TYPE slurm_sdiag_jobs_completed gauge
+slurm_sdiag_jobs_completed 16
+# HELP slurm_sdiag_jobs_failed Jobs failed since reset
+# TYPE slurm_sdiag_jobs_failed gauge
+slurm_sdiag_jobs_failed 0
+# HELP slurm_sdiag_jobs_pending Jobs pending at timestamp
+# TYPE slurm_sdiag_jobs_pending gauge
+slurm_sdiag_jobs_pending 1
+# HELP slurm_sdiag_jobs_running Jobs running at timestamp
+# TYPE slurm_sdiag_jobs_running gauge
+slurm_sdiag_jobs_running 0
+# HELP slurm_sdiag_jobs_started Jobs started since reset
+# TYPE slurm_sdiag_jobs_started gauge
+slurm_sdiag_jobs_started 16
+# HELP slurm_sdiag_jobs_submitted Jobs submitted since reset
+# TYPE slurm_sdiag_jobs_submitted gauge
+slurm_sdiag_jobs_submitted 17
+# HELP slurm_sdiag_job_states_ts Job states timestamp
+# TYPE slurm_sdiag_job_states_ts gauge
+slurm_sdiag_job_states_ts 1766498280
+# HELP slurm_last_backfilled_jobs Backfilled jobs since last cycle
+# TYPE slurm_last_backfilled_jobs gauge
+slurm_last_backfilled_jobs 1
+# HELP slurm_sdiag_latency Measurement latency
+# TYPE slurm_sdiag_latency gauge
+slurm_sdiag_latency 12
+# HELP slurm_schedule_cycle_cnt Scheduling cycle count
+# TYPE slurm_schedule_cycle_cnt gauge
+slurm_schedule_cycle_cnt 119
+# HELP slurm_schedule_cycle_depth Processed jobs depth total
+# TYPE slurm_schedule_cycle_depth gauge
+slurm_schedule_cycle_depth 10
+# HELP slurm_schedule_cycle_last Last scheduling cycle time
+# TYPE slurm_schedule_cycle_last gauge
+slurm_schedule_cycle_last 288
+# HELP slurm_schedule_cycle_max Max scheduling cycle time
+# TYPE slurm_schedule_cycle_max gauge
+slurm_schedule_cycle_max 5060
+# HELP slurm_schedule_cycle_tot Sum of scheduling cycle times
+# TYPE slurm_schedule_cycle_tot gauge
+slurm_schedule_cycle_tot 19919
+# HELP slurm_schedule_queue_len Jobs pending queue length
+# TYPE slurm_schedule_queue_len gauge
+slurm_schedule_queue_len 1
+# HELP slurm_sched_exit_end End of job queue
+# TYPE slurm_sched_exit_end gauge
+slurm_sched_exit_end 119
+# HELP slurm_sched_exit_max_depth Hit default_queue_depth
+# TYPE slurm_sched_exit_max_depth gauge
+slurm_sched_exit_max_depth 0
+# HELP slurm_sched_exit_max_job_start Hit sched_max_job_start
+# TYPE slurm_sched_exit_max_job_start gauge
+slurm_sched_exit_max_job_start 0
+# HELP slurm_sched_exit_lic Blocked on licenses
+# TYPE slurm_sched_exit_lic gauge
+slurm_sched_exit_lic 0
+# HELP slurm_sched_exit_rpc_cnt Hit max_rpc_cnt
+# TYPE slurm_sched_exit_rpc_cnt gauge
+slurm_sched_exit_rpc_cnt 0
+# HELP slurm_sched_exit_timeout Timeout (max_sched_time)
+# TYPE slurm_sched_exit_timeout gauge
+slurm_sched_exit_timeout 0
+# HELP slurm_bf_exit_end End of job queue
+# TYPE slurm_bf_exit_end gauge
+slurm_bf_exit_end 1
+# HELP slurm_bf_exit_max_job_start Hit bf_max_job_start
+# TYPE slurm_bf_exit_max_job_start gauge
+slurm_bf_exit_max_job_start 0
+# HELP slurm_bf_exit_max_job_test Hit bf_max_job_test
+# TYPE slurm_bf_exit_max_job_test gauge
+slurm_bf_exit_max_job_test 0
+# HELP slurm_bf_exit_state_changed System state changed
+# TYPE slurm_bf_exit_state_changed gauge
+slurm_bf_exit_state_changed 0
+# HELP slurm_bf_exit_table_limit Hit table size limit (bf_node_space_size)
+# TYPE slurm_bf_exit_table_limit gauge
+slurm_bf_exit_table_limit 0
+# HELP slurm_bf_exit_timeout Timeout (bf_max_time)
+# TYPE slurm_bf_exit_timeout gauge
+slurm_bf_exit_timeout 0
+# HELP slurm_sched_mean_cycle Mean scheduling cycle time
+# TYPE slurm_sched_mean_cycle gauge
+slurm_sched_mean_cycle 167
+# HELP slurm_sched_mean_depth_cycle Mean depth of scheduling cycles
+# TYPE slurm_sched_mean_depth_cycle gauge
+slurm_sched_mean_depth_cycle 0
+# HELP slurm_server_thread_cnt Active slurmctld threads count
+# TYPE slurm_server_thread_cnt gauge
+slurm_server_thread_cnt 0
+# HELP slurm_slurmdbd_queue_size Queued messages to SlurmDBD
+# TYPE slurm_slurmdbd_queue_size gauge
+slurm_slurmdbd_queue_size 0
+# HELP slurm_last_proc_req_start Timestamp of last process request start
+# TYPE slurm_last_proc_req_start gauge
+slurm_last_proc_req_start 1766492338
+# HELP slurm_sched_stats_timestamp Statistics snapshot timestamp
+# TYPE slurm_sched_stats_timestamp gauge
+slurm_sched_stats_timestamp 1766498282

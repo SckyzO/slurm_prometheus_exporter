@@ -1,0 +1,87 @@
+# HELP slurm_jobs_bootfail Number of jobs in BootFail state
+# TYPE slurm_jobs_bootfail gauge
+slurm_jobs_bootfail 0
+# HELP slurm_jobs_cancelled Number of jobs in Cancelled state
+# TYPE slurm_jobs_cancelled gauge
+slurm_jobs_cancelled 0
+# HELP slurm_jobs_completed Number of jobs in Completed state
+# TYPE slurm_jobs_completed gauge
+slurm_jobs_completed 2
+# HELP slurm_jobs_completing Number of jobs in Completing state
+# TYPE slurm_jobs_completing gauge
+slurm_jobs_completing 1
+# HELP slurm_jobs_configuring Number of jobs in Configuring state
+# TYPE slurm_jobs_configuring gauge
+slurm_jobs_configuring 0
+# HELP slurm_jobs_cpus_alloc Total number of Cpus allocated by jobs
+# TYPE slurm_jobs_cpus_alloc gauge
+slurm_jobs_cpus_alloc 0
+# HELP slurm_jobs_deadline Number of jobs in Deadline state
+# TYPE slurm_jobs_deadline gauge
+slurm_jobs_deadline 0
+# HELP slurm_jobs_expediting Number of jobs in Expediting state
+# TYPE slurm_jobs_expediting gauge
+slurm_jobs_expediting 0
+# HELP slurm_jobs_failed Number of jobs in Failed state
+# TYPE slurm_jobs_failed gauge
+slurm_jobs_failed 0
+# HELP slurm_jobs_fed_requeued Number of jobs requeued in a federation
+# TYPE slurm_jobs_fed_requeued gauge
+slurm_jobs_fed_requeued 0
+# HELP slurm_jobs_finished Number of finished jobs
+# TYPE slurm_jobs_finished gauge
+slurm_jobs_finished 2
+# HELP slurm_jobs_hold Number of jobs in Hold state
+# TYPE slurm_jobs_hold gauge
+slurm_jobs_hold 0
+# HELP slurm_jobs Total number of jobs
+# TYPE slurm_jobs gauge
+slurm_jobs 2
+# HELP slurm_jobs_memory_alloc Total memory bytes allocated by jobs
+# TYPE slurm_jobs_memory_alloc gauge
+slurm_jobs_memory_alloc 0
+# HELP slurm_jobs_node_failed Number of jobs in Node Failed state
+# TYPE slurm_jobs_node_failed gauge
+slurm_jobs_node_failed 0
+# HELP slurm_jobs_nodes_alloc Total number of nodes allocated by jobs
+# TYPE slurm_jobs_nodes_alloc gauge
+slurm_jobs_nodes_alloc 0
+# HELP slurm_jobs_outofmemory Number of jobs in Out of Memory state
+# TYPE slurm_jobs_outofmemory gauge
+slurm_jobs_outofmemory 0
+# HELP slurm_jobs_pending Number of jobs in Pending state
+# TYPE slurm_jobs_pending gauge
+slurm_jobs_pending 0
+# HELP slurm_jobs_powerup_node Number of jobs in PowerUp Node state
+# TYPE slurm_jobs_powerup_node gauge
+slurm_jobs_powerup_node 0
+# HELP slurm_jobs_preempted Number of jobs in Preempted state
+# TYPE slurm_jobs_preempted gauge
+slurm_jobs_preempted 0
+# HELP slurm_jobs_requeued Number of jobs in Requeued state
+# TYPE slurm_jobs_requeued gauge
+slurm_jobs_requeued 0
+# HELP slurm_jobs_resizing Number of jobs in Resizing state
+# TYPE slurm_jobs_resizing gauge
+slurm_jobs_resizing 0
+# HELP slurm_jobs_revoked Number of jobs in Rvoked state
+# TYPE slurm_jobs_revoked gauge
+slurm_jobs_revoked 0
+# HELP slurm_jobs_running Number of jobs in Running state
+# TYPE slurm_jobs_running gauge
+slurm_jobs_running 0
+# HELP slurm_jobs_signaling Number of jobs being signaled
+# TYPE slurm_jobs_signaling gauge
+slurm_jobs_signaling 0
+# HELP slurm_jobs_stageout Number of jobs in StageOut state
+# TYPE slurm_jobs_stageout gauge
+slurm_jobs_stageout 0
+# HELP slurm_jobs_started Number of started jobs
+# TYPE slurm_jobs_started gauge
+slurm_jobs_started 2
+# HELP slurm_jobs_suspended Number of jobs in Suspended state
+# TYPE slurm_jobs_suspended gauge
+slurm_jobs_suspended 0
+# HELP slurm_jobs_timeout Number of jobs in Timeout state
+# TYPE slurm_jobs_timeout gauge
+slurm_jobs_timeout 0

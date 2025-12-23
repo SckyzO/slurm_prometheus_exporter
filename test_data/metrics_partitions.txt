@@ -1,0 +1,213 @@
+# HELP slurm_partitions Total number of partitions
+# TYPE slurm_partitions gauge
+slurm_partitions 1
+# HELP slurm_partition_jobs Number of jobs in this partition
+# TYPE slurm_partition_jobs gauge
+slurm_partition_jobs{partition="normal"} 0
+# HELP slurm_partition_jobs_bootfail Number of jobs in BootFail state
+# TYPE slurm_partition_jobs_bootfail gauge
+slurm_partition_jobs_bootfail{partition="normal"} 0
+# HELP slurm_partition_jobs_cancelled Number of jobs in Cancelled state
+# TYPE slurm_partition_jobs_cancelled gauge
+slurm_partition_jobs_cancelled{partition="normal"} 0
+# HELP slurm_partition_jobs_completed Number of jobs in Completed state
+# TYPE slurm_partition_jobs_completed gauge
+slurm_partition_jobs_completed{partition="normal"} 8
+# HELP slurm_partition_jobs_completing Number of jobs in Completing state
+# TYPE slurm_partition_jobs_completing gauge
+slurm_partition_jobs_completing{partition="normal"} 0
+# HELP slurm_partition_jobs_configuring Number of jobs in Configuring state
+# TYPE slurm_partition_jobs_configuring gauge
+slurm_partition_jobs_configuring{partition="normal"} 0
+# HELP slurm_partition_jobs_cpus_alloc Total number of Cpus allocated by jobs
+# TYPE slurm_partition_jobs_cpus_alloc gauge
+slurm_partition_jobs_cpus_alloc{partition="normal"} 0
+# HELP slurm_partition_jobs_deadline Number of jobs in Deadline state
+# TYPE slurm_partition_jobs_deadline gauge
+slurm_partition_jobs_deadline{partition="normal"} 0
+# HELP slurm_partition_jobs_expediting Number of jobs in Expediting state
+# TYPE slurm_partition_jobs_expediting gauge
+slurm_partition_jobs_expediting{partition="normal"} 0
+# HELP slurm_partition_jobs_failed Number of jobs in Failed state
+# TYPE slurm_partition_jobs_failed gauge
+slurm_partition_jobs_failed{partition="normal"} 0
+# HELP slurm_partition_jobs_fed_requeued Number of jobs requeued in a federation
+# TYPE slurm_partition_jobs_fed_requeued gauge
+slurm_partition_jobs_fed_requeued{partition="normal"} 0
+# HELP slurm_partition_jobs_finished Number of jobs in Finished
+# TYPE slurm_partition_jobs_finished gauge
+slurm_partition_jobs_finished{partition="normal"} 8
+# HELP slurm_partition_jobs_hold Number of jobs in Hold state
+# TYPE slurm_partition_jobs_hold gauge
+slurm_partition_jobs_hold{partition="normal"} 0
+# HELP slurm_partition_jobs_max_job_nodes Max of the max_nodes required of all pending jobs in that partition
+# TYPE slurm_partition_jobs_max_job_nodes gauge
+slurm_partition_jobs_max_job_nodes{partition="normal"} 0
+# HELP slurm_partition_jobs_max_job_nodes_nohold Max of the max_nodes required of all pending jobs in that partition excluding Held jobs
+# TYPE slurm_partition_jobs_max_job_nodes_nohold gauge
+slurm_partition_jobs_max_job_nodes_nohold{partition="normal"} 0
+# HELP slurm_partition_jobs_memory_alloc Total memory bytes allocated by jobs
+# TYPE slurm_partition_jobs_memory_alloc gauge
+slurm_partition_jobs_memory_alloc{partition="normal"} 0
+# HELP slurm_partition_jobs_min_job_nodes Max of the min_nodes required of all pending jobs in that partition
+# TYPE slurm_partition_jobs_min_job_nodes gauge
+slurm_partition_jobs_min_job_nodes{partition="normal"} 0
+# HELP slurm_partition_jobs_min_job_nodes_nohold Max of the min_nodes required of all pending jobs in that partition excluding Held jobs
+# TYPE slurm_partition_jobs_min_job_nodes_nohold gauge
+slurm_partition_jobs_min_job_nodes_nohold{partition="normal"} 0
+# HELP slurm_partition_jobs_node_failed Number of jobs in Node Failed state
+# TYPE slurm_partition_jobs_node_failed gauge
+slurm_partition_jobs_node_failed{partition="normal"} 0
+# HELP slurm_partition_jobs_outofmemory Number of jobs in Out of Memory state
+# TYPE slurm_partition_jobs_outofmemory gauge
+slurm_partition_jobs_outofmemory{partition="normal"} 0
+# HELP slurm_partition_jobs_pending Number of jobs in Pending state
+# TYPE slurm_partition_jobs_pending gauge
+slurm_partition_jobs_pending{partition="normal"} 0
+# HELP slurm_partition_jobs_powerup_node Number of jobs in PowerUp Node state
+# TYPE slurm_partition_jobs_powerup_node gauge
+slurm_partition_jobs_powerup_node{partition="normal"} 0
+# HELP slurm_partition_jobs_preempted Number of jobs in Preempted state
+# TYPE slurm_partition_jobs_preempted gauge
+slurm_partition_jobs_preempted{partition="normal"} 0
+# HELP slurm_partition_jobs_requeued Number of jobs in Requeued state
+# TYPE slurm_partition_jobs_requeued gauge
+slurm_partition_jobs_requeued{partition="normal"} 0
+# HELP slurm_partition_jobs_resizing Number of jobs in Resizing state
+# TYPE slurm_partition_jobs_resizing gauge
+slurm_partition_jobs_resizing{partition="normal"} 0
+# HELP slurm_partition_jobs_revoked Number of revoked jobs
+# TYPE slurm_partition_jobs_revoked gauge
+slurm_partition_jobs_revoked{partition="normal"} 0
+# HELP slurm_partition_jobs_running Number of jobs in Running state
+# TYPE slurm_partition_jobs_running gauge
+slurm_partition_jobs_running{partition="normal"} 0
+# HELP slurm_partition_jobs_signaling Number of jobs in Signaling state
+# TYPE slurm_partition_jobs_signaling gauge
+slurm_partition_jobs_signaling{partition="normal"} 0
+# HELP slurm_partition_jobs_stageout Number of jobs in StageOut state
+# TYPE slurm_partition_jobs_stageout gauge
+slurm_partition_jobs_stageout{partition="normal"} 0
+# HELP slurm_partition_jobs_started Number of jobs started
+# TYPE slurm_partition_jobs_started gauge
+slurm_partition_jobs_started{partition="normal"} 8
+# HELP slurm_partition_jobs_suspended Number of jobs in Suspended state
+# TYPE slurm_partition_jobs_suspended gauge
+slurm_partition_jobs_suspended{partition="normal"} 0
+# HELP slurm_partition_jobs_timeout Number of jobs in Timeout state
+# TYPE slurm_partition_jobs_timeout gauge
+slurm_partition_jobs_timeout{partition="normal"} 0
+# HELP slurm_partition_jobs_wait_part_node_limit Jobs wait partition node limit
+# TYPE slurm_partition_jobs_wait_part_node_limit gauge
+slurm_partition_jobs_wait_part_node_limit{partition="normal"} 0
+# HELP slurm_partition_nodes_alloc Nodes allocated
+# TYPE slurm_partition_nodes_alloc gauge
+slurm_partition_nodes_alloc{partition="normal"} 0
+# HELP slurm_partition_nodes_blocked Nodes blocked
+# TYPE slurm_partition_nodes_blocked gauge
+slurm_partition_nodes_blocked{partition="normal"} 0
+# HELP slurm_partition_nodes_cg Nodes in completing state
+# TYPE slurm_partition_nodes_cg gauge
+slurm_partition_nodes_cg{partition="normal"} 0
+# HELP slurm_partition_nodes_cloud Cloud nodes
+# TYPE slurm_partition_nodes_cloud gauge
+slurm_partition_nodes_cloud{partition="normal"} 0
+# HELP slurm_partition_nodes_cpus_efctv Number of effective CPUs on all nodes, excludes CoreSpec
+# TYPE slurm_partition_nodes_cpus_efctv gauge
+slurm_partition_nodes_cpus_efctv{partition="normal"} 4
+# HELP slurm_partition_nodes_cpus_idle Number of idle CPUs on all nodes
+# TYPE slurm_partition_nodes_cpus_idle gauge
+slurm_partition_nodes_cpus_idle{partition="normal"} 4
+# HELP slurm_partition_nodes_cpus_alloc Number of allocated cpus
+# TYPE slurm_partition_nodes_cpus_alloc gauge
+slurm_partition_nodes_cpus_alloc{partition="normal"} 0
+# HELP slurm_partition_nodes_down Nodes in Down state
+# TYPE slurm_partition_nodes_down gauge
+slurm_partition_nodes_down{partition="normal"} 0
+# HELP slurm_partition_nodes_drain Nodes in Drain state
+# TYPE slurm_partition_nodes_drain gauge
+slurm_partition_nodes_drain{partition="normal"} 0
+# HELP slurm_partition_nodes_drained Nodes in Drained state
+# TYPE slurm_partition_nodes_drained gauge
+slurm_partition_nodes_drained{partition="normal"} 0
+# HELP slurm_partition_nodes_draining Number of nodes in draining condition (Drain state with active jobs)
+# TYPE slurm_partition_nodes_draining gauge
+slurm_partition_nodes_draining{partition="normal"} 0
+# HELP slurm_partition_nodes_dyn_future Dynamic nodes in Future state
+# TYPE slurm_partition_nodes_dyn_future gauge
+slurm_partition_nodes_dyn_future{partition="normal"} 0
+# HELP slurm_partition_nodes_dyn_normal Dynamic nodes
+# TYPE slurm_partition_nodes_dyn_normal gauge
+slurm_partition_nodes_dyn_normal{partition="normal"} 0
+# HELP slurm_partition_nodes_external External nodes
+# TYPE slurm_partition_nodes_external gauge
+slurm_partition_nodes_external{partition="normal"} 0
+# HELP slurm_partition_nodes_fail Nodes in Fail state
+# TYPE slurm_partition_nodes_fail gauge
+slurm_partition_nodes_fail{partition="normal"} 0
+# HELP slurm_partition_nodes_future Nodes in Future state
+# TYPE slurm_partition_nodes_future gauge
+slurm_partition_nodes_future{partition="normal"} 0
+# HELP slurm_partition_nodes_idle Nodes in Idle state
+# TYPE slurm_partition_nodes_idle gauge
+slurm_partition_nodes_idle{partition="normal"} 2
+# HELP slurm_partition_nodes_invalid_reg Number of nodes with Invalid Registration flag
+# TYPE slurm_partition_nodes_invalid_reg gauge
+slurm_partition_nodes_invalid_reg{partition="normal"} 0
+# HELP slurm_partition_nodes_maint Nodes in maintenance state
+# TYPE slurm_partition_nodes_maint gauge
+slurm_partition_nodes_maint{partition="normal"} 0
+# HELP slurm_partition_nodes_mem_alloc Amount of allocated memory of all nodes
+# TYPE slurm_partition_nodes_mem_alloc gauge
+slurm_partition_nodes_mem_alloc{partition="normal"} 0
+# HELP slurm_partition_nodes_mem_avail Amount of available memory of all nodes
+# TYPE slurm_partition_nodes_mem_avail gauge
+slurm_partition_nodes_mem_avail{partition="normal"} 2000
+# HELP slurm_partition_nodes_mem_free Amount of free memory in all nodes
+# TYPE slurm_partition_nodes_mem_free gauge
+slurm_partition_nodes_mem_free{partition="normal"} 20774
+# HELP slurm_partition_nodes_mem_tot Total amount of memory of all nodes
+# TYPE slurm_partition_nodes_mem_tot gauge
+slurm_partition_nodes_mem_tot{partition="normal"} 2000
+# HELP slurm_partition_nodes_mixed Nodes in Mixed state
+# TYPE slurm_partition_nodes_mixed gauge
+slurm_partition_nodes_mixed{partition="normal"} 0
+# HELP slurm_partition_nodes_no_resp Nodes in Not Responding state
+# TYPE slurm_partition_nodes_no_resp gauge
+slurm_partition_nodes_no_resp{partition="normal"} 0
+# HELP slurm_partition_nodes_planned Nodes in Planned state
+# TYPE slurm_partition_nodes_planned gauge
+slurm_partition_nodes_planned{partition="normal"} 0
+# HELP slurm_partition_nodes_power_down Nodes marked to Power Down
+# TYPE slurm_partition_nodes_power_down gauge
+slurm_partition_nodes_power_down{partition="normal"} 0
+# HELP slurm_partition_nodes_power_up Nodes marked to Power Up
+# TYPE slurm_partition_nodes_power_up gauge
+slurm_partition_nodes_power_up{partition="normal"} 0
+# HELP slurm_partition_nodes_powered_down Powered down nodes
+# TYPE slurm_partition_nodes_powered_down gauge
+slurm_partition_nodes_powered_down{partition="normal"} 0
+# HELP slurm_partition_nodes_powering_down Powering down nodes
+# TYPE slurm_partition_nodes_powering_down gauge
+slurm_partition_nodes_powering_down{partition="normal"} 0
+# HELP slurm_partition_nodes_powering_up Powering up nodes
+# TYPE slurm_partition_nodes_powering_up gauge
+slurm_partition_nodes_powering_up{partition="normal"} 0
+# HELP slurm_partition_nodes_reboot_issued Nodes which initiated reboot
+# TYPE slurm_partition_nodes_reboot_issued gauge
+slurm_partition_nodes_reboot_issued{partition="normal"} 0
+# HELP slurm_partition_nodes_reboot_requested Nodes with Reboot Requested flag
+# TYPE slurm_partition_nodes_reboot_requested gauge
+slurm_partition_nodes_reboot_requested{partition="normal"} 0
+# HELP slurm_partition_nodes_resv Nodes with Reserved flag
+# TYPE slurm_partition_nodes_resv gauge
+slurm_partition_nodes_resv{partition="normal"} 0
+# HELP slurm_partition_nodes_unknown Nodes in Unknown state
+# TYPE slurm_partition_nodes_unknown gauge
+slurm_partition_nodes_unknown{partition="normal"} 0
+# HELP slurm_partition_cpus Partition total cpus
+# TYPE slurm_partition_cpus gauge
+slurm_partition_cpus{partition="normal"} 4
+# HELP slurm_partition_nodes Partition total nodes
+# TYPE slurm_partition_nodes gauge
+slurm_partition_nodes{partition="normal"} 2

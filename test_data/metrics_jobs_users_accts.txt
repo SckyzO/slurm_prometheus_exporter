@@ -1,0 +1,174 @@
+# HELP slurm_user_jobs_bootfail Number of jobs in BootFail state
+# TYPE slurm_user_jobs_bootfail gauge
+slurm_user_jobs_bootfail{username="root"} 0
+# HELP slurm_user_jobs_cancelled Number of jobs in Cancelled state
+# TYPE slurm_user_jobs_cancelled gauge
+slurm_user_jobs_cancelled{username="root"} 0
+# HELP slurm_user_jobs_completed Number of jobs in Completed state
+# TYPE slurm_user_jobs_completed gauge
+slurm_user_jobs_completed{username="root"} 11
+# HELP slurm_user_jobs_completing Number of jobs in Completing state
+# TYPE slurm_user_jobs_completing gauge
+slurm_user_jobs_completing{username="root"} 0
+# HELP slurm_user_jobs_configuring Number of jobs in Configuring state
+# TYPE slurm_user_jobs_configuring gauge
+slurm_user_jobs_configuring{username="root"} 0
+# HELP slurm_user_jobs_cpus_alloc Total number of Cpus allocated by jobs
+# TYPE slurm_user_jobs_cpus_alloc gauge
+slurm_user_jobs_cpus_alloc{username="root"} 0
+# HELP slurm_user_jobs_deadline Number of jobs in Deadline state
+# TYPE slurm_user_jobs_deadline gauge
+slurm_user_jobs_deadline{username="root"} 0
+# HELP slurm_user_jobs_expediting Number of jobs in Expediting state
+# TYPE slurm_user_jobs_expediting gauge
+slurm_user_jobs_expediting{username="root"} 0
+# HELP slurm_user_jobs_failed Number of jobs in Failed state
+# TYPE slurm_user_jobs_failed gauge
+slurm_user_jobs_failed{username="root"} 0
+# HELP slurm_user_jobs_fed_requeued Number of jobs requeued in a federation
+# TYPE slurm_user_jobs_fed_requeued gauge
+slurm_user_jobs_fed_requeued{username="root"} 0
+# HELP slurm_user_jobs_finished Number of finished jobs
+# TYPE slurm_user_jobs_finished gauge
+slurm_user_jobs_finished{username="root"} 11
+# HELP slurm_user_jobs_hold Number of jobs in Hold state
+# TYPE slurm_user_jobs_hold gauge
+slurm_user_jobs_hold{username="root"} 0
+# HELP slurm_user_jobs Total number of jobs
+# TYPE slurm_user_jobs gauge
+slurm_user_jobs{username="root"} 11
+# HELP slurm_user_jobs_memory_alloc Total memory bytes allocated by jobs
+# TYPE slurm_user_jobs_memory_alloc gauge
+slurm_user_jobs_memory_alloc{username="root"} 0
+# HELP slurm_user_jobs_node_failed Number of jobs in Node Failed state
+# TYPE slurm_user_jobs_node_failed gauge
+slurm_user_jobs_node_failed{username="root"} 0
+# HELP slurm_user_jobs_nodes_alloc Total number of nodes allocated by jobs
+# TYPE slurm_user_jobs_nodes_alloc gauge
+slurm_user_jobs_nodes_alloc{username="root"} 0
+# HELP slurm_user_jobs_outofmemory Number of jobs in Out of Memory state
+# TYPE slurm_user_jobs_outofmemory gauge
+slurm_user_jobs_outofmemory{username="root"} 0
+# HELP slurm_user_jobs_pending Number of jobs in Pending state
+# TYPE slurm_user_jobs_pending gauge
+slurm_user_jobs_pending{username="root"} 0
+# HELP slurm_user_jobs_powerup_node Number of jobs in PowerUp Node state
+# TYPE slurm_user_jobs_powerup_node gauge
+slurm_user_jobs_powerup_node{username="root"} 0
+# HELP slurm_user_jobs_preempted Number of jobs in Preempted state
+# TYPE slurm_user_jobs_preempted gauge
+slurm_user_jobs_preempted{username="root"} 0
+# HELP slurm_user_jobs_requeued Number of jobs in Requeued state
+# TYPE slurm_user_jobs_requeued gauge
+slurm_user_jobs_requeued{username="root"} 0
+# HELP slurm_user_jobs_resizing Number of jobs in Resizing state
+# TYPE slurm_user_jobs_resizing gauge
+slurm_user_jobs_resizing{username="root"} 0
+# HELP slurm_user_jobs_revoked Number of jobs revoked
+# TYPE slurm_user_jobs_revoked gauge
+slurm_user_jobs_revoked{username="root"} 0
+# HELP slurm_user_jobs_running Number of jobs in Running state
+# TYPE slurm_user_jobs_running gauge
+slurm_user_jobs_running{username="root"} 0
+# HELP slurm_user_jobs_signaling Number of jobs being signaled
+# TYPE slurm_user_jobs_signaling gauge
+slurm_user_jobs_signaling{username="root"} 0
+# HELP slurm_user_jobs_stageout Number of jobs in StageOut state
+# TYPE slurm_user_jobs_stageout gauge
+slurm_user_jobs_stageout{username="root"} 0
+# HELP slurm_user_jobs_started Number of started jobs
+# TYPE slurm_user_jobs_started gauge
+slurm_user_jobs_started{username="root"} 11
+# HELP slurm_user_jobs_suspended Number of jobs in Suspended state
+# TYPE slurm_user_jobs_suspended gauge
+slurm_user_jobs_suspended{username="root"} 0
+# HELP slurm_user_jobs_timeout Number of jobs in Timeout state
+# TYPE slurm_user_jobs_timeout gauge
+slurm_user_jobs_timeout{username="root"} 0
+# HELP slurm_account_jobs_bootfail Number of jobs in BootFail state
+# TYPE slurm_account_jobs_bootfail gauge
+slurm_account_jobs_bootfail{account="root"} 0
+# HELP slurm_account_jobs_cancelled Number of jobs in Cancelled state
+# TYPE slurm_account_jobs_cancelled gauge
+slurm_account_jobs_cancelled{account="root"} 0
+# HELP slurm_account_jobs_completed Number of jobs in Completed state
+# TYPE slurm_account_jobs_completed gauge
+slurm_account_jobs_completed{account="root"} 11
+# HELP slurm_account_jobs_completing Number of jobs in Completing state
+# TYPE slurm_account_jobs_completing gauge
+slurm_account_jobs_completing{account="root"} 0
+# HELP slurm_account_jobs_configuring Number of jobs in Configuring state
+# TYPE slurm_account_jobs_configuring gauge
+slurm_account_jobs_configuring{account="root"} 0
+# HELP slurm_account_jobs_cpus_alloc Total number of Cpus allocated by jobs
+# TYPE slurm_account_jobs_cpus_alloc gauge
+slurm_account_jobs_cpus_alloc{account="root"} 0
+# HELP slurm_account_jobs_deadline Number of jobs in Deadline state
+# TYPE slurm_account_jobs_deadline gauge
+slurm_account_jobs_deadline{account="root"} 0
+# HELP slurm_account_jobs_expediting Number of jobs in Expediting state
+# TYPE slurm_account_jobs_expediting gauge
+slurm_account_jobs_expediting{account="root"} 0
+# HELP slurm_account_jobs_failed Number of jobs in Failed state
+# TYPE slurm_account_jobs_failed gauge
+slurm_account_jobs_failed{account="root"} 0
+# HELP slurm_account_jobs_fed_requeued Number of jobs requeued in a federation
+# TYPE slurm_account_jobs_fed_requeued gauge
+slurm_account_jobs_fed_requeued{account="root"} 0
+# HELP slurm_account_jobs_finished Number of finished jobs
+# TYPE slurm_account_jobs_finished gauge
+slurm_account_jobs_finished{account="root"} 11
+# HELP slurm_account_jobs_hold Number of jobs in Hold state
+# TYPE slurm_account_jobs_hold gauge
+slurm_account_jobs_hold{account="root"} 0
+# HELP slurm_account_jobs Total number of jobs
+# TYPE slurm_account_jobs gauge
+slurm_account_jobs{account="root"} 11
+# HELP slurm_account_jobs_memory_alloc Total memory bytes allocated by jobs
+# TYPE slurm_account_jobs_memory_alloc gauge
+slurm_account_jobs_memory_alloc{account="root"} 0
+# HELP slurm_account_jobs_node_failed Number of jobs in Node Failed state
+# TYPE slurm_account_jobs_node_failed gauge
+slurm_account_jobs_node_failed{account="root"} 0
+# HELP slurm_account_jobs_nodes_alloc Total number of nodes allocated by jobs
+# TYPE slurm_account_jobs_nodes_alloc gauge
+slurm_account_jobs_nodes_alloc{account="root"} 0
+# HELP slurm_account_jobs_outofmemory Number of jobs in Out of Memory state
+# TYPE slurm_account_jobs_outofmemory gauge
+slurm_account_jobs_outofmemory{account="root"} 0
+# HELP slurm_account_jobs_pending Number of jobs in Pending state
+# TYPE slurm_account_jobs_pending gauge
+slurm_account_jobs_pending{account="root"} 0
+# HELP slurm_account_jobs_powerup_node Number of jobs in PowerUp Node state
+# TYPE slurm_account_jobs_powerup_node gauge
+slurm_account_jobs_powerup_node{account="root"} 0
+# HELP slurm_account_jobs_preempted Number of jobs in Preempted state
+# TYPE slurm_account_jobs_preempted gauge
+slurm_account_jobs_preempted{account="root"} 0
+# HELP slurm_account_jobs_requeued Number of jobs in Requeued state
+# TYPE slurm_account_jobs_requeued gauge
+slurm_account_jobs_requeued{account="root"} 0
+# HELP slurm_account_jobs_resizing Number of jobs in Resizing state
+# TYPE slurm_account_jobs_resizing gauge
+slurm_account_jobs_resizing{account="root"} 0
+# HELP slurm_account_jobs_revoked Number of jobs revoked
+# TYPE slurm_account_jobs_revoked gauge
+slurm_account_jobs_revoked{account="root"} 0
+# HELP slurm_account_jobs_running Number of jobs in Running state
+# TYPE slurm_account_jobs_running gauge
+slurm_account_jobs_running{account="root"} 0
+# HELP slurm_account_jobs_signaling Number of jobs being signaled
+# TYPE slurm_account_jobs_signaling gauge
+slurm_account_jobs_signaling{account="root"} 0
+# HELP slurm_account_jobs_stageout Number of jobs in StageOut state
+# TYPE slurm_account_jobs_stageout gauge
+slurm_account_jobs_stageout{account="root"} 0
+# HELP slurm_account_jobs_started Number of started jobs
+# TYPE slurm_account_jobs_started gauge
+slurm_account_jobs_started{account="root"} 11
+# HELP slurm_account_jobs_suspended Number of jobs in Suspended state
+# TYPE slurm_account_jobs_suspended gauge
+slurm_account_jobs_suspended{account="root"} 0
+# HELP slurm_account_jobs_timeout Number of jobs in Timeout state
+# TYPE slurm_account_jobs_timeout gauge
+slurm_account_jobs_timeout{account="root"} 0

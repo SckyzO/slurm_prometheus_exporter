@@ -1,0 +1,116 @@
+# HELP slurm_node_cpus Total number of cpus in the node
+# TYPE slurm_node_cpus gauge
+slurm_node_cpus{node="c1"} 2
+slurm_node_cpus{node="c2"} 2
+# HELP slurm_node_cpus_alloc Allocated cpus in the node
+# TYPE slurm_node_cpus_alloc gauge
+slurm_node_cpus_alloc{node="c1"} 0
+slurm_node_cpus_alloc{node="c2"} 0
+# HELP slurm_node_cpus_effective CPUs allocatable to jobs not reserved for system usage
+# TYPE slurm_node_cpus_effective gauge
+slurm_node_cpus_effective{node="c1"} 2
+slurm_node_cpus_effective{node="c2"} 2
+# HELP slurm_node_cpus_idle Idle cpus in the node
+# TYPE slurm_node_cpus_idle gauge
+slurm_node_cpus_idle{node="c1"} 2
+slurm_node_cpus_idle{node="c2"} 2
+# HELP slurm_node_memory_alloc_bytes Bytes allocated to jobs in the node
+# TYPE slurm_node_memory_alloc_bytes gauge
+slurm_node_memory_alloc_bytes{node="c1"} 0
+slurm_node_memory_alloc_bytes{node="c2"} 0
+# HELP slurm_node_memory_effective_bytes Memory allocatable to jobs not reserved for system usage
+# TYPE slurm_node_memory_effective_bytes gauge
+slurm_node_memory_effective_bytes{node="c1"} 1000
+slurm_node_memory_effective_bytes{node="c2"} 1000
+# HELP slurm_node_memory_free_bytes Free memory in bytes of the node
+# TYPE slurm_node_memory_free_bytes gauge
+slurm_node_memory_free_bytes{node="c1"} 10387
+slurm_node_memory_free_bytes{node="c2"} 10387
+# HELP slurm_node_memory_bytes Total memory in bytes of the node
+# TYPE slurm_node_memory_bytes gauge
+slurm_node_memory_bytes{node="c1"} 1000
+slurm_node_memory_bytes{node="c2"} 1000
+# HELP slurm_nodes Total number of nodes
+# TYPE slurm_nodes gauge
+slurm_nodes 2
+# HELP slurm_nodes_alloc Number of nodes in Allocated state
+# TYPE slurm_nodes_alloc gauge
+slurm_nodes_alloc 0
+# HELP slurm_nodes_blocked Number of nodes in Blocked state
+# TYPE slurm_nodes_blocked gauge
+slurm_nodes_blocked 0
+# HELP slurm_nodes_completing Number of nodes with Completing flag
+# TYPE slurm_nodes_completing gauge
+slurm_nodes_completing 0
+# HELP slurm_nodes_cloud Number of Cloud nodes
+# TYPE slurm_nodes_cloud gauge
+slurm_nodes_cloud 0
+# HELP slurm_nodes_down Number of nodes in Down state
+# TYPE slurm_nodes_down gauge
+slurm_nodes_down 0
+# HELP slurm_nodes_drain Number of nodes with Drain flag
+# TYPE slurm_nodes_drain gauge
+slurm_nodes_drain 0
+# HELP slurm_nodes_drained Number of drained nodes
+# TYPE slurm_nodes_drained gauge
+slurm_nodes_drained 0
+# HELP slurm_nodes_draining Number of nodes in draining condition (Drain state with active jobs)
+# TYPE slurm_nodes_draining gauge
+slurm_nodes_draining 0
+# HELP slurm_nodes_dyn_future Number of future dynamic nodes
+# TYPE slurm_nodes_dyn_future gauge
+slurm_nodes_dyn_future 0
+# HELP slurm_nodes_dyn_normal Number of dynamic nodes
+# TYPE slurm_nodes_dyn_normal gauge
+slurm_nodes_dyn_normal 0
+# HELP slurm_nodes_external Number of external nodes
+# TYPE slurm_nodes_external gauge
+slurm_nodes_external 0
+# HELP slurm_nodes_fail Number of nodes with Fail flag
+# TYPE slurm_nodes_fail gauge
+slurm_nodes_fail 0
+# HELP slurm_nodes_future Number of nodes in Future state
+# TYPE slurm_nodes_future gauge
+slurm_nodes_future 0
+# HELP slurm_nodes_idle Number of nodes in Idle state
+# TYPE slurm_nodes_idle gauge
+slurm_nodes_idle 2
+# HELP slurm_nodes_invalid_reg Number of nodes with Invalid Registration flag
+# TYPE slurm_nodes_invalid_reg gauge
+slurm_nodes_invalid_reg 0
+# HELP slurm_nodes_maint Number of nodes with Maintenance flag
+# TYPE slurm_nodes_maint gauge
+slurm_nodes_maint 0
+# HELP slurm_nodes_mixed Number of nodes in Mixed state
+# TYPE slurm_nodes_mixed gauge
+slurm_nodes_mixed 0
+# HELP slurm_nodes_noresp Number of nodes with Not Responding flag
+# TYPE slurm_nodes_noresp gauge
+slurm_nodes_noresp 0
+# HELP slurm_nodes_planned Number of nodes with Planned flag
+# TYPE slurm_nodes_planned gauge
+slurm_nodes_planned 0
+# HELP slurm_nodes_power_down Number of nodes marked to be powered down
+# TYPE slurm_nodes_power_down gauge
+slurm_nodes_power_down 0
+# HELP slurm_nodes_power_up Number of nodes marked to be powered up
+# TYPE slurm_nodes_power_up gauge
+slurm_nodes_power_up 0
+# HELP slurm_nodes_powered_down Number of nodes powered down
+# TYPE slurm_nodes_powered_down gauge
+slurm_nodes_powered_down 0
+# HELP slurm_nodes_powering_up Number of nodes powering up
+# TYPE slurm_nodes_powering_up gauge
+slurm_nodes_powering_up 0
+# HELP slurm_nodes_reboot_issued Number of nodes with Reboot Issued flag
+# TYPE slurm_nodes_reboot_issued gauge
+slurm_nodes_reboot_issued 0
+# HELP slurm_nodes_reboot_req Number of nodes with Reboot Requested flag
+# TYPE slurm_nodes_reboot_req gauge
+slurm_nodes_reboot_req 0
+# HELP slurm_nodes_resv Number of nodes with Reserved flag
+# TYPE slurm_nodes_resv gauge
+slurm_nodes_resv 0
+# HELP slurm_nodes_unknown Number of nodes in Unknown state
+# TYPE slurm_nodes_unknown gauge
+slurm_nodes_unknown 0
