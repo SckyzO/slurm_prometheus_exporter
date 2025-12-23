@@ -95,7 +95,7 @@ An example configuration file is available in [`configs/config.yaml`](configs/co
 Run the exporter with your configuration file:
 
 ```bash
-./slurm_exporter --config config.yaml
+./slurm_exporter --config.file=config.yaml
 ```
 
 ### Command-line Options
@@ -104,9 +104,31 @@ Run the exporter with your configuration file:
 Usage: slurm_exporter [<flags>]
 
 Flags:
-  --help               Show help
-  --version            Show version
-  --config=CONFIG      Path to configuration file
+  --help                        Show help
+  -v, --version                 Show version information
+  --config.file="config.yaml"   Path to configuration file
+  --web.listen-address=":8080"  Address to listen on for web interface and telemetry
+  --web.telemetry-path="/metrics"
+                                Path under which to expose metrics
+  --web.config.file=""          Path to configuration file for TLS and/or basic auth (optional)
+  --log.level="info"            Log level (debug, info, warn, error)
+  --log.format="text"           Log format (text, json)
+```
+
+### Examples
+
+```bash
+# Use a specific config file
+./slurm_exporter --config.file=/etc/slurm_exporter/config.yaml
+
+# Override listen address
+./slurm_exporter --config.file=config.yaml --web.listen-address=":9100"
+
+# Enable debug logging
+./slurm_exporter --config.file=config.yaml --log.level=debug
+
+# Use JSON logging format
+./slurm_exporter --config.file=config.yaml --log.format=json
 ```
 
 ### Endpoints

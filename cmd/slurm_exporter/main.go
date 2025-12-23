@@ -23,8 +23,27 @@ var (
 	BuildTime = "unknown"
 
 	// Command-line flags
-	configFile = kingpin.Flag("config", "Path to configuration file").
+	configFile = kingpin.Flag("config.file", "Path to configuration file").
 			Default("config.yaml").
+			String()
+
+	webListenAddress = kingpin.Flag("web.listen-address", "Address to listen on for web interface and telemetry").
+				Default(":8080").
+				String()
+
+	webTelemetryPath = kingpin.Flag("web.telemetry-path", "Path under which to expose metrics").
+				Default("/metrics").
+				String()
+
+	webConfigFile = kingpin.Flag("web.config.file", "Path to configuration file for TLS and/or basic authentication (optional)").
+			String()
+
+	logLevel = kingpin.Flag("log.level", "Log level (debug, info, warn, error)").
+			Default("info").
+			String()
+
+	logFormat = kingpin.Flag("log.format", "Log format (text, json)").
+			Default("text").
 			String()
 
 	showVersion = kingpin.Flag("version", "Show version information").
@@ -50,6 +69,26 @@ func main() {
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Failed to load configuration: %v\n", err)
 		os.Exit(1)
+	}
+
+	// Override config with CLI flags if provided
+	if *webListenAddress != ":8080" {
+		// Parse port from listen address
+		if _, err := fmt.Sscanf(*webListenAddress, ":%d", &cfg.Server.Port); err == nil {
+			// Successfully parsed port
+		} else if _, err := fmt.Sscanf(*webListenAddress, "%*[^:]:%d", &cfg.Server.Port); err == nil {
+			// Successfully parsed with host
+		}
+	}
+
+	// Override logging configuration with CLI flags
+	if *logLevel != "info" {
+		cfg.Logging.Level = *logLevel
+	}
+	if *logFormat != "text" {
+		if *logFormat == "json" {
+			cfg.Logging.Output = "json"
+		}
 	}
 
 	// Setup logging
