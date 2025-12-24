@@ -1,6 +1,8 @@
 # Slurm Exporter 🚀
 
-A Prometheus exporter for Slurm metrics, because monitoring your HPC cluster should be as smooth as your jobs running on it! This exporter unifies all Slurm metrics endpoints (see [Slurm Metrics Documentation](https://slurm.schedmd.com/metrics.html)) into a single Prometheus-compatible endpoint.
+A Prometheus exporter for Slurm metrics, because monitoring your HPC cluster should be as smooth as your jobs running on it! 
+
+This exporter unifies all Slurm metrics endpoints (see [Slurm Metrics Documentation](https://slurm.schedmd.com/metrics.html)) into a single Prometheus-compatible endpoint.
 
 ## Features ✨
 
@@ -17,6 +19,15 @@ A Prometheus exporter for Slurm metrics, because monitoring your HPC cluster sho
 - Go 1.23 or higher
 - Slurm 25.11 or higher with OpenMetrics enabled
 - Access to Slurm Metrics (https://slurm.schedmd.com/metrics.html)
+
+```
+GET /metrics - Print available metric endpoints
+GET /metrics/jobs - Job-related metrics including counts by state, resource allocation, and job statistics (examples)
+GET /metrics/jobs-users-accts - User- and account-specific job metrics (examples)
+GET /metrics/nodes - Node-related metrics including resource counts, states, and utilization (examples)
+GET /metrics/partitions - Partition-related metrics including job counts per partition and resource allocation (examples)
+GET /metrics/scheduler - Scheduler performance metrics including cycle times, backfill statistics, and queue lengths (examples)
+```
 
 ## Installation 🔧
 
